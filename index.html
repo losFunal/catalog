@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1f2933">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Katalóg hrobov – Mušov Roviny</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <button class="icon-btn" id="b-left" title="Zoznam hrobov">☰</button>
+  <div class="grave-nav">
+    <button class="icon-btn" id="b-prev" title="Predchádzajúci hrob (←)">◀</button>
+    <button class="grave-name" id="b-grave" title="Vybrať hrob">–</button>
+    <button class="icon-btn" id="b-next" title="Ďalší hrob (→)">▶</button>
+  </div>
+  <div class="title" id="title"></div>
+  <div class="seg" id="modeseg">
+    <button data-mode="view" class="on" title="Prehliadanie">👁 Prehliadať</button>
+    <button data-mode="edit" title="Úprava tvaru a kreslenie (E)">✏ Upraviť</button>
+  </div>
+  <button class="icon-btn" id="b-tools" title="Nástroje">⋯</button>
+  <button class="icon-btn" id="b-full" title="Celá obrazovka">⛶</button>
+  <button class="icon-btn" id="b-right" title="Vrstvy a legenda">🗂</button>
+</header>
+<div class="bar" id="drbar"></div>
+<main>
+  <aside id="left" class="panel left">
+    <div class="panel-pad">
+      <input class="inp" id="search" placeholder="Hľadať hrob (napr. 62)">
+      <select class="inp" id="filter">
+        <option>všetky</option><option>chýba georeferencia</option><option>bez skenov</option>
+        <option>skeny mimo hrobu</option><option>s bodmi z merania</option><option>nezhody (návrhy W)</option>
+        <option>nehotové</option><option>hotové</option>
+      </select>
+      <div class="legend"><span class="lg ok"></span>georef. <span class="lg part"></span>časť <span class="lg none"></span>nič <span class="lg done"></span>hotové</div>
+    </div>
+    <div class="glist" id="glist"></div>
+  </aside>
+  <section id="mapwrap">
+    <canvas id="map"></canvas>
+    <div id="quickbar" class="quickbar hidden"></div>
+    <div id="editmsg" class="editmsg hidden"></div>
+    <div id="editbar" class="edittools hidden"></div>
+    <div id="rawbanner" class="rawbanner hidden"></div>
+    <div id="card" class="card hidden"></div>
+    <div class="viewtools" id="viewtools"></div>
+    <div class="loading" id="loading"><span class="spinner"></span><span id="loadtxt">Načítavam…</span></div>
+  </section>
+  <aside id="right" class="panel right">
+    <div class="info" id="info"></div>
+  </aside>
+</main>
+<footer id="status">Pripájam sa…</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
